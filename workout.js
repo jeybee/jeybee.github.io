@@ -81,6 +81,11 @@ function updateApp() {
 
 }
 
+function replaySprite() {
+    audioElements[curSegment].load();
+    playSprite(curSegment);
+}
+
 function playSprite(id) {
     audioElements[id].play();
 }
@@ -118,13 +123,6 @@ function load() {
         aElement.load();
         audioElements.push(aElement);
     }
-
-    // Keep the phone from sleeping (hacky)
-    // http://stackoverflow.com/q/9709891
-    var stayAwake = setInterval(function () {
-        location.href = location.href; //try refreshing
-        window.setTimeout(window.stop, 0); //stop it soon after
-    }, 30000);
 
 }
 
